@@ -1,28 +1,26 @@
 //
-//  CharacterListWireframe.swift
+//  FavoriteCharactersWireFrame.swift
 //  MarvelChar
 //
-//  Created by SidneySilva on 26/10/19.
+//  Created by resource on 29/10/19.
 //  Copyright © 2019 SakuraSoft. All rights reserved.
 //
 
 import UIKit
 
-class CharacterListWireframe: NSObject {
-    let presenter = CharacterListPresenter()
-    let interactor: CharacterListInteractor!
-    let repository = Repository()
+class FavoriteCharactersWireFrame: NSObject {
+    var viewController: FavoriteCharacterViewController?
+    let presenter = FavoriteCharactersPresenter()
+    let interactor: FavoriteCharactersInteractor!
     let coreDataManager = CoreDataManager()
-    var viewController: CharacterListViewController?
     
-    init(viewController: CharacterListViewController) {
+    init(viewController: FavoriteCharacterViewController) {
         self.viewController = viewController
-        interactor = CharacterListInteractor(coreDataManager: coreDataManager)
+        interactor = FavoriteCharactersInteractor(coreDataManager: coreDataManager)
         interactor.presenter = presenter
-        interactor.repository = repository
         presenter.viewController = viewController
     }
-
+    
     func routeToShowDetails(character: Result) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "CharacterDetailsTableViewController") as? CharacterDetailsTableViewController else { return }

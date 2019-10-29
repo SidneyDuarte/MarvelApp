@@ -7,15 +7,15 @@
 //
 
 protocol CharacterListPresenterProtocol {
-    func showCharacters(dataClass: DataClass?)
+    func showCharacters()
     func showError(error: String)
 }
 
 class CharacterListPresenter: CharacterListPresenterProtocol {
     weak var viewController: CharacterListViewControllerProtocol?
     
-    func showCharacters(dataClass: DataClass?) {
-        viewController?.showCharacters(dataClass: dataClass)
+    func showCharacters() {
+        viewController?.showCharacters()
     }
     
     func showError(error: String) {

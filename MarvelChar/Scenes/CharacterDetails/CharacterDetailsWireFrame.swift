@@ -10,16 +10,15 @@ import UIKit
 
 class CharacterDetailsWireFrame: NSObject {
     var viewController: CharacterDetailsTableViewController?
+    let presenter = CharacterDetailsPresenter()
+    let interactor = CharacterDetailsInteractor()
+    let repository = Repository()
     
-    class func setup(viewController: CharacterDetailsTableViewController) {
-        let presenter = CharacterDetailsPresenter()
-        let interactor = CharacterDetailsInteractor()
-        let wireFrame = CharacterDetailsWireFrame()
-        
+    init(viewController: CharacterDetailsTableViewController) {
+        self.viewController = viewController
         viewController.interactor = interactor
-        viewController.wireFrame = wireFrame
         interactor.presenter = presenter
+        interactor.repository = repository
         presenter.viewController = viewController
-        wireFrame.viewController = viewController
     }
 }

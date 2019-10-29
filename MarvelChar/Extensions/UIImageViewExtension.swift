@@ -27,7 +27,6 @@ extension UIImageView {
                 guard let image = UIImage(data: imageData) else { return }
                 imageCache.setObject(image, forKey: url.absoluteString as NSString)
                 self.image = image
-                self.setNeedsDisplay()
             })
             
         }).resume()

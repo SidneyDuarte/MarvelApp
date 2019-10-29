@@ -9,30 +9,27 @@
 import UIKit
 
 protocol CharacterListViewControllerProtocol: class {
-    func showCharacters(dataClass: DataClass?)
+    func showCharacters()
     func showError(error: String)
 }
 
 class CharacterListViewController: UIViewController {
-    var interactor: CharacterListInteractorProtocol?
     var wireFrame: CharacterListWireframe?
-    var dataClass: DataClass?
-    var characters = [Result]()
     var loadingView: LoadingView?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        CharacterListWireframe.setup(viewController: self)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.fetchCharacter(offset: 0)
-        configureLoadingView()
+        wireFrame = CharacterListWireframe(viewController: self)
+        wireFrame?.interactor.fetchCharacter(offset: 0)
+        configureLayout()
         flowLayout.configFlowLayoutSize(viewWidth: self.view.bounds.width)
-        
+    }
+    
+    func configureLayout() {
+        configureLoadingView()
+        collectionView.register(UINib(nibName: "CharacterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "characterCell")
     }
     
     func configureLoadingView() {
@@ -44,38 +41,41 @@ class CharacterListViewController: UIViewController {
 
 extension CharacterListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters.count
+        return wireFrame?.interactor.characters.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath) as? CharacterListCollectionViewCell else { return UICollectionViewCell() }
-        let character = characters[indexPath.item]
-        cell.setupCell(character: character)
+        guard let character = wireFrame?.interactor.characters[indexPath.item] else {
+            return cell
+        }
+        var isFavorite = false
+        if let favorites = wireFrame?.interactor.favoritesCharacter.filter({ $0.id == character.id }) {
+            isFavorite = favorites.count > 0 ? true : false
+        }
+        cell.setupCell(character: character, isFavorite: isFavorite)
         cell.setupImage(thumbnail: character.thumbnail)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let total = dataClass?.total ?? characters.count
-        let target = characters.count - 1
+        let total = wireFrame?.interactor.dataClass?.total ?? (wireFrame?.interactor.characters.count ?? 0)
+        let target = (wireFrame?.interactor.characters.count ?? 1) - 1
         
         if target < total && target == indexPath.row {
             configureLoadingView()
-            interactor?.fetchCharacter(offset: characters.count)
+            wireFrame?.interactor.fetchCharacter(offset: wireFrame?.interactor.characters.count ?? 0)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let character = characters[indexPath.item]
+        guard let character = wireFrame?.interactor.characters[indexPath.item] else { return }
         wireFrame?.routeToShowDetails(character: character)
     }
 }
 
 extension CharacterListViewController: CharacterListViewControllerProtocol {
-    func showCharacters(dataClass: DataClass?) {
-        self.dataClass = dataClass
-        guard let charactersArray = dataClass?.results else { return }
-        self.characters.append(contentsOf: charactersArray)
+    func showCharacters() {
         DispatchQueue.main.async {
             self.loadingView?.removeFromSuperview()
             self.collectionView.reloadData()
@@ -83,6 +83,8 @@ extension CharacterListViewController: CharacterListViewControllerProtocol {
     }
     
     func showError(error: String) {
-        
+        DispatchQueue.main.async {
+            self.loadingView?.removeFromSuperview()
+        }
     }
 }
