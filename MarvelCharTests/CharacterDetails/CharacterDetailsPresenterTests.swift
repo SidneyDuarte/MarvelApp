@@ -2,7 +2,7 @@
 //  CharacterDetailsPresenterTests.swift
 //  MarvelCharTests
 //
-//  Created by resource on 30/10/19.
+//  Created by SidneySilva on 30/10/19.
 //  Copyright © 2019 SakuraSoft. All rights reserved.
 //
 

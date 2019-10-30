@@ -2,7 +2,7 @@
 //  CharacterImageTableViewCell.swift
 //  MarvelChar
 //
-//  Created by resource on 29/10/19.
+//  Created by SidneySilva on 29/10/19.
 //  Copyright © 2019 SakuraSoft. All rights reserved.
 //
 
