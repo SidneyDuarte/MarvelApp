@@ -13,6 +13,8 @@ protocol CharacterDetailsPresenterProtocol {
     func displaySeries()
     func displayComics()
     func showError(error: String)
+    func saveFromFavorite()
+    func revomeFromFavorite()
 }
 
 class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
@@ -30,6 +32,14 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
     
     func displayComics() {
         viewController?.displayComics()
+    }
+    
+    func saveFromFavorite() {
+        viewController?.saveFromFavorites()
+    }
+    
+    func revomeFromFavorite() {
+        viewController?.removeFromFavorites()
     }
     
     func showError(error: String) {

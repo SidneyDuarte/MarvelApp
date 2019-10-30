@@ -12,13 +12,15 @@ protocol CharacterDetailsTableViewControllerProtocol {
     func displayInfo(character: Result, imageUrl: URL?)
     func displaySeries()
     func displayComics()
+    func saveFromFavorites()
+    func removeFromFavorites()
     func showError(string: String)
 }
 
 class CharacterDetailsTableViewController: UITableViewController {
     var wireFrame: CharacterDetailsWireFrame?
-    var interactor: CharacterDetailsInteractor?
-     var loadingView: LoadingView?
+    var loadingView: LoadingView?
+    @IBOutlet weak var barButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,15 @@ class CharacterDetailsTableViewController: UITableViewController {
         loadingView = LoadingView.instanceFromNib()
         loadingView?.frame = self.view.frame
         view.addSubview(loadingView ?? UIView())
+    }
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+        let isFavorite = wireFrame?.interactor.character?.isFavorite ?? false
+        if isFavorite {
+             wireFrame?.interactor.removeFromFavorites()
+        } else {
+            wireFrame?.interactor.saveFromFavorite()
+        }
     }
 }
 
@@ -60,11 +71,11 @@ extension CharacterDetailsTableViewController {
         case 0:
             if indexPath.row == 0 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterImageCell", for: indexPath) as? CharacterImageTableViewCell else { return UITableViewCell() }
-                cell.setupImage(thumbnail: interactor?.character?.thumbnail)
+                cell.setupImage(thumbnail: wireFrame?.interactor.character?.thumbnail)
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterInfoCell", for: indexPath) as? CharacterInfoTableViewCell else { return UITableViewCell() }
-                cell.infoLabel.text = interactor?.character?.description ?? ""
+                cell.infoLabel.text = wireFrame?.interactor.character?.description ?? ""
                 return cell
             }
         case 1:
@@ -102,13 +113,15 @@ extension CharacterDetailsTableViewController {
 extension CharacterDetailsTableViewController: CharacterDetailsTableViewControllerProtocol {
     func displayInfo(character: Result, imageUrl: URL?) {
         self.title = character.name ?? ""
+        let isFavorite = character.isFavorite ?? false
+        barButton.tintColor = isFavorite ? UIColor.yellow : UIColor.gray
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        interactor?.loadComics(characterId: character.id ?? 0)
+        wireFrame?.interactor.loadComics(characterId: character.id ?? 0)
     }
     
     func displayComics() {
         let id = wireFrame?.interactor.character?.id ?? 0
-        interactor?.loadSeries(characterId: id)
+        wireFrame?.interactor.loadSeries(characterId: id)
         DispatchQueue.main.async {
             self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
         }
@@ -121,7 +134,19 @@ extension CharacterDetailsTableViewController: CharacterDetailsTableViewControll
         }
     }
     
+    func saveFromFavorites() {
+        wireFrame?.interactor.character?.isFavorite = true
+        barButton.tintColor = UIColor.yellow
+    }
+    
+    func removeFromFavorites() {
+        wireFrame?.interactor.character?.isFavorite = false
+        barButton.tintColor = UIColor.gray
+    }
+    
     func showError(string: String) {
-        print("erro")
+        DispatchQueue.main.async {
+            self.loadingView?.removeFromSuperview()
+        }
     }
 }

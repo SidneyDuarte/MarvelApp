@@ -14,7 +14,6 @@ class CharacterListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     var character: Result?
     var isFavorite = false
-    var interactor: CharacterListInteractorProtocol?
     
     func setupCell(character: Result, isFavorite: Bool) {
         self.isFavorite = isFavorite

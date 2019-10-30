@@ -22,7 +22,7 @@ struct DataClass: Decodable {
 
 struct Result: Decodable {
     let id: Int?
-    let isFavorite: Bool?
+    var isFavorite: Bool?
     let name: String?
     let title: String?
     let description: String?

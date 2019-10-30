@@ -66,7 +66,7 @@ class CoreDataManager: NSObject {
 
          do {
             let result = try managedContext.fetch(fetchRequest)
-            guard let objectToDelete = result[0] as? NSManagedObject else { return }
+            guard let objectToDelete = result.first as? NSManagedObject else { return }
             managedContext.delete(objectToDelete)
              
             do {
@@ -74,9 +74,7 @@ class CoreDataManager: NSObject {
             } catch {
                 print(error)
             }
-         }
-         catch
-         {
+         } catch {
              print(error)
          }
     }

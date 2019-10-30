@@ -12,12 +12,13 @@ class CharacterDetailsWireFrame: NSObject {
     var viewController: CharacterDetailsTableViewController?
     let presenter = CharacterDetailsPresenter()
     let interactor = CharacterDetailsInteractor()
+    let coreDataManager = CoreDataManager()
     let repository = Repository()
     
     init(viewController: CharacterDetailsTableViewController) {
         self.viewController = viewController
-        viewController.interactor = interactor
         interactor.presenter = presenter
+        interactor.coreDataManager = coreDataManager
         interactor.repository = repository
         presenter.viewController = viewController
     }

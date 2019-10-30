@@ -12,11 +12,14 @@ protocol CharacterDetailsInteractorProtocol {
     func getInfo()
     func loadSeries(characterId: Int)
     func loadComics(characterId: Int)
+    func saveFromFavorite()
+    func removeFromFavorites()
 }
 
 class CharacterDetailsInteractor: NSObject {
     var presenter: CharacterDetailsPresenterProtocol?
     var repository: Repository?
+    var coreDataManager: CoreDataManager?
     var comics = [Result]()
     var series = [Result]()
     var character: Result?
@@ -59,7 +62,19 @@ extension CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
             self.numberOfComics = comics.count
             self.presenter?.displayComics()
         }, failure: { (error) in
-            
+            self.presenter?.showError(error: error)
         })
+    }
+    
+    func saveFromFavorite() {
+        guard let character = self.character else { return }
+        coreDataManager?.saveCharacter(character: character)
+        presenter?.saveFromFavorite()
+    }
+    
+    func removeFromFavorites() {
+        guard let id = self.character?.id else { return }
+        coreDataManager?.deleteCharacter(id: id)
+        presenter?.revomeFromFavorite()
     }
 }

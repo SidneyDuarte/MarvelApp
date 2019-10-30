@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="collectionView" destination="nA3-Ca-0ef" id="byO-FV-g4R"/>
                         <outlet property="flowLayout" destination="PyI-FD-yzk" id="ARu-Ae-6yI"/>
+                        <segue destination="BHP-Wd-eJP" kind="show" id="aAi-aF-0yY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -244,12 +245,22 @@
                             <outlet property="delegate" destination="BHP-Wd-eJP" id="sl3-mx-ff1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SLS-9U-Oz8"/>
+                    <navigationItem key="navigationItem" id="SLS-9U-Oz8">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="favoriteSelect" id="gM7-yp-o37">
+                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didTapFavorite:" destination="BHP-Wd-eJP" id="aea-EF-1ni"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="barButton" destination="gM7-yp-o37" id="813-4t-B6f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tny-Af-0HK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141.875" y="-282.04225352112678"/>
+            <point key="canvasLocation" x="3159" y="236"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="M0L-T1-PZt">
@@ -359,6 +370,7 @@
     <resources>
         <image name="characterIcon" width="25" height="25"/>
         <image name="favoriteIcon" width="25" height="25"/>
+        <image name="favoriteSelect" width="32" height="32"/>
         <image name="placeholder" width="539" height="539"/>
     </resources>
 </document>

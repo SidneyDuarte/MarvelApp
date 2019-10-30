@@ -20,12 +20,6 @@ class CharacterListInteractor: NSObject {
     var dataClass: DataClass?
     var characters = [Result]()
     var favoritesCharacter = [Result]()
-    
-    init(coreDataManager: CoreDataManager) {
-        super.init()
-        self.coreDataManager = coreDataManager
-        fetchFavoriteCharacter()
-    }
 }
 
 extension CharacterListInteractor: CharacterListInteractorProtocol {
@@ -46,6 +40,6 @@ extension CharacterListInteractor: CharacterListInteractorProtocol {
     
     func fetchFavoriteCharacter() {
         guard let characters = coreDataManager?.retrieveCharacters() else { return }
-        favoritesCharacter.append(contentsOf: characters)
+        favoritesCharacter = characters
     }
 }

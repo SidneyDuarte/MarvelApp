@@ -21,10 +21,16 @@ class CharacterListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        wireFrame = CharacterListWireframe(viewController: self)
-        wireFrame?.interactor.fetchCharacter(offset: 0)
         configureLayout()
+        wireFrame = CharacterListWireframe(viewController: self)
         flowLayout.configFlowLayoutSize(viewWidth: self.view.bounds.width)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        wireFrame?.interactor.characters.removeAll()
+        wireFrame?.interactor.fetchFavoriteCharacter()
+        wireFrame?.interactor.fetchCharacter(offset: 0)
     }
     
     func configureLayout() {
@@ -53,6 +59,7 @@ extension CharacterListViewController: UICollectionViewDataSource, UICollectionV
         if let favorites = wireFrame?.interactor.favoritesCharacter.filter({ $0.id == character.id }) {
             isFavorite = favorites.count > 0 ? true : false
         }
+        wireFrame?.interactor.characters[indexPath.item].isFavorite = isFavorite
         cell.setupCell(character: character, isFavorite: isFavorite)
         cell.setupImage(thumbnail: character.thumbnail)
         return cell
@@ -69,7 +76,7 @@ extension CharacterListViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let character = wireFrame?.interactor.characters[indexPath.item] else { return }
+        guard var character = wireFrame?.interactor.characters[indexPath.item] else { return }
         wireFrame?.routeToShowDetails(character: character)
     }
 }

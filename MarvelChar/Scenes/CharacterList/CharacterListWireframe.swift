@@ -10,14 +10,14 @@ import UIKit
 
 class CharacterListWireframe: NSObject {
     let presenter = CharacterListPresenter()
-    let interactor: CharacterListInteractor!
+    let interactor = CharacterListInteractor()
     let repository = Repository()
     let coreDataManager = CoreDataManager()
     var viewController: CharacterListViewController?
     
     init(viewController: CharacterListViewController) {
         self.viewController = viewController
-        interactor = CharacterListInteractor(coreDataManager: coreDataManager)
+        interactor.coreDataManager = coreDataManager
         interactor.presenter = presenter
         interactor.repository = repository
         presenter.viewController = viewController
