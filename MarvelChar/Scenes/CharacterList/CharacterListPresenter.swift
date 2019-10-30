@@ -8,7 +8,7 @@
 
 protocol CharacterListPresenterProtocol {
     func showCharacters()
-    func showError(error: String)
+    func showError(state: State)
 }
 
 class CharacterListPresenter: CharacterListPresenterProtocol {
@@ -18,7 +18,7 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
         viewController?.showCharacters()
     }
     
-    func showError(error: String) {
-        viewController?.showError(error: error)
+    func showError(state: State) {
+        viewController?.showError(state: state)
     }
 }

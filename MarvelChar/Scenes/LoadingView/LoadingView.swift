@@ -12,5 +12,4 @@ class LoadingView: UIView {
     class func instanceFromNib() -> LoadingView? {
         return UINib(nibName: "LoadingView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? LoadingView
     }
-
 }

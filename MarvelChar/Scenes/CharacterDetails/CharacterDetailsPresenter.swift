@@ -12,7 +12,7 @@ protocol CharacterDetailsPresenterProtocol {
     func displayInfo(character: Result)
     func displaySeries()
     func displayComics()
-    func showError(error: String)
+    func showError(state: State)
     func saveFromFavorite()
     func revomeFromFavorite()
 }
@@ -42,7 +42,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
         viewController?.removeFromFavorites()
     }
     
-    func showError(error: String) {
-        viewController?.showError(string: error)
+    func showError(state: State) {
+        
     }
 }

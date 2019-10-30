@@ -12,8 +12,7 @@ protocol CharacterDetailsInteractorProtocol {
     func getInfo()
     func loadSeries(characterId: Int)
     func loadComics(characterId: Int)
-    func saveFromFavorite()
-    func removeFromFavorites()
+    func setupFavorite(isFavorite: Bool)
 }
 
 class CharacterDetailsInteractor: NSObject {
@@ -30,7 +29,7 @@ class CharacterDetailsInteractor: NSObject {
 extension CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
     func getInfo() {
         guard let character = character else {
-            self.presenter?.showError(error: "nenhum personagem para apresentar")
+            self.presenter?.showError(state: .noResult)
             return
         }
         presenter?.displayInfo(character: character)
@@ -40,14 +39,14 @@ extension CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
         let request = MarvelCharacter.Request(orderBy: "title", limit: 100, offset: 0, endpoint: "series", append: "&characters=\(characterId)")
         repository?.getResponse(request: request, success: { (response) in
             guard let series = response.response?.data?.results else {
-                self.presenter?.showError(error: "Personagem não possui nenhuma série")
+                self.presenter?.showError(state: .noResult)
                 return
             }
             self.numberOfSeries = series.count
             self.series = series
             self.presenter?.displaySeries()
-        }, failure: { (error) in
-            self.presenter?.showError(error: error)
+        }, failure: { (state) in
+            self.presenter?.showError(state: state)
         })
     }
     
@@ -55,26 +54,26 @@ extension CharacterDetailsInteractor: CharacterDetailsInteractorProtocol {
         let request = MarvelCharacter.Request(orderBy: "title", limit: 100, offset: 0, endpoint: "comics", append: "&characters=\(characterId)")
         repository?.getResponse(request: request, success: { (response) in
             guard let comics = response.response?.data?.results else {
-                self.presenter?.showError(error: "Personagem não possui nenhum quadrinho")
+                self.presenter?.showError(state: .noResult)
                 return
             }
             self.comics = comics
             self.numberOfComics = comics.count
             self.presenter?.displayComics()
-        }, failure: { (error) in
-            self.presenter?.showError(error: error)
+        }, failure: { (state) in
+            self.presenter?.showError(state: state)
         })
     }
     
-    func saveFromFavorite() {
-        guard let character = self.character else { return }
-        coreDataManager?.saveCharacter(character: character)
-        presenter?.saveFromFavorite()
-    }
-    
-    func removeFromFavorites() {
-        guard let id = self.character?.id else { return }
-        coreDataManager?.deleteCharacter(id: id)
-        presenter?.revomeFromFavorite()
+    func setupFavorite(isFavorite: Bool) {
+        if isFavorite {
+            guard let id = self.character?.id else { return }
+            coreDataManager?.deleteCharacter(id: id)
+            presenter?.revomeFromFavorite()
+        } else {
+            guard let character = self.character else { return }
+            coreDataManager?.saveCharacter(character: character)
+            presenter?.saveFromFavorite()
+        }
     }
 }

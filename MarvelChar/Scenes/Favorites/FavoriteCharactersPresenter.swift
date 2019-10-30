@@ -10,6 +10,7 @@ import UIKit
 
 protocol FavoriteCharactersPresenterProtocol {
     func showCharacters()
+    func emptyState(state: State)
 }
 
 class FavoriteCharactersPresenter: FavoriteCharactersPresenterProtocol {
@@ -17,5 +18,9 @@ class FavoriteCharactersPresenter: FavoriteCharactersPresenterProtocol {
     
     func showCharacters() {
         self.viewController?.showCharacters()
+    }
+    
+    func emptyState(state: State) {
+        viewController?.emptyState(state: state)
     }
 }

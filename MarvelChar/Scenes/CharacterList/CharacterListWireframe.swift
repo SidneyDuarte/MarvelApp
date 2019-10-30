@@ -13,6 +13,7 @@ class CharacterListWireframe: NSObject {
     let interactor = CharacterListInteractor()
     let repository = Repository()
     let coreDataManager = CoreDataManager()
+    let router = CharacterListRouter()
     var viewController: CharacterListViewController?
     
     init(viewController: CharacterListViewController) {
@@ -21,17 +22,6 @@ class CharacterListWireframe: NSObject {
         interactor.presenter = presenter
         interactor.repository = repository
         presenter.viewController = viewController
-    }
-
-    func routeToShowDetails(character: Result) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "CharacterDetailsTableViewController") as? CharacterDetailsTableViewController else { return }
-        destinationVC.wireFrame = CharacterDetailsWireFrame(viewController: destinationVC)
-        destinationVC.wireFrame?.interactor.character = character
-        navigateToDetails(destination: destinationVC)
-    }
-    
-    func navigateToDetails(destination: CharacterDetailsTableViewController) {
-        viewController?.show(destination, sender: nil)
+        router.viewController = viewController
     }
 }

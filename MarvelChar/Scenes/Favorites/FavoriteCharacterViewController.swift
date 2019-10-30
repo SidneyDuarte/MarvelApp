@@ -10,6 +10,7 @@ import UIKit
 
 protocol FavoriteCharacterViewControllerProtocol: class {
     func showCharacters()
+    func emptyState(state: State)
 }
 
 class FavoriteCharacterViewController: UIViewController {
@@ -51,15 +52,21 @@ extension FavoriteCharacterViewController: UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let character = wireFrame?.interactor.characters[indexPath.item] else { return }
-        wireFrame?.routeToShowDetails(character: character)
+        wireFrame?.router.routeToShowDetails(character: character)
     }
 }
 
 extension FavoriteCharacterViewController: FavoriteCharacterViewControllerProtocol {
     func showCharacters() {
         DispatchQueue.main.async {
+            self.collectionView.backgroundView = nil
             self.collectionView.reloadData()
         }
+    }
+    
+    func emptyState(state: State) {
+        self.collectionView.reloadData()
+        self.collectionView.backgroundView = EmptyStateView.instanceFromNib(state: state)
     }
 }
 

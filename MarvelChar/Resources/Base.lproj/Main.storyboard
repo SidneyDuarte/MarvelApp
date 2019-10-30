@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Character List View Controller-->
+        <!--characters-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="MarvelChar" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,20 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-HP-byh">
+                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsd-HP-byh">
                                 <rect key="frame" x="0.0" y="44" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="JKS-fR-qse"/>
+                                </connections>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nA3-Ca-0ef">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nA3-Ca-0ef">
                                 <rect key="frame" x="0.0" y="100" width="320" height="419"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PyI-FD-yzk">
@@ -57,11 +56,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OSd-W8-Hsl"/>
+                    <navigationItem key="navigationItem" title="characters" id="OSd-W8-Hsl">
+                        <barButtonItem key="backBarButtonItem" title=" " id="180-NM-pqf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nA3-Ca-0ef" id="byO-FV-g4R"/>
                         <outlet property="flowLayout" destination="PyI-FD-yzk" id="ARu-Ae-6yI"/>
-                        <segue destination="BHP-Wd-eJP" kind="show" id="aAi-aF-0yY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,7 +159,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="124" height="187"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-6m-9r4">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-6m-9r4">
                                                                 <rect key="frame" x="8" y="8" width="108" height="171"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -177,7 +177,7 @@
                                                                 <rect key="frame" x="0.0" y="131" width="124" height="56"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnT-ue-uD6">
-                                                                        <rect key="frame" x="8" y="8" width="108" height="48"/>
+                                                                        <rect key="frame" x="8" y="0.0" width="108" height="56"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                                                                     <constraint firstAttribute="trailing" secondItem="FnT-ue-uD6" secondAttribute="trailing" constant="8" id="HeG-xY-nhT"/>
                                                                     <constraint firstItem="FnT-ue-uD6" firstAttribute="leading" secondItem="L0k-DY-9Bf" secondAttribute="leading" constant="8" id="Pq1-HG-mIE"/>
                                                                     <constraint firstAttribute="bottom" secondItem="FnT-ue-uD6" secondAttribute="bottom" id="RHM-mo-M9f"/>
-                                                                    <constraint firstItem="FnT-ue-uD6" firstAttribute="top" secondItem="L0k-DY-9Bf" secondAttribute="top" constant="8" id="wme-lS-QMI"/>
+                                                                    <constraint firstItem="FnT-ue-uD6" firstAttribute="top" secondItem="L0k-DY-9Bf" secondAttribute="top" id="wme-lS-QMI"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -271,7 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="barTintColor" red="0.85442966220000005" green="0.2208815217" blue="0.19602146740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -283,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
-        <!--Favorite Character View Controller-->
+        <!--favorites-->
         <scene sceneID="P8K-8v-sEK">
             <objects>
                 <viewController id="ywB-t9-Vd1" customClass="FavoriteCharacterViewController" customModule="MarvelChar" customModuleProvider="target" sceneMemberID="viewController">
@@ -316,7 +316,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7T-t3-c2N"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CZV-wU-Mx9"/>
+                    <navigationItem key="navigationItem" title="favorites" id="CZV-wU-Mx9">
+                        <barButtonItem key="backBarButtonItem" title=" " id="xrn-aH-7ff"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="35b-Dt-nwz" id="cI0-FY-R6D"/>
                         <outlet property="flowLayout" destination="Qu1-km-GGd" id="ylF-V2-2Jl"/>
@@ -334,9 +336,13 @@
                         <color key="badgeColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="aQr-Us-E7S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" id="aQr-Us-E7S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.85442966220000005" green="0.2208815217" blue="0.19602146740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -353,9 +359,13 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9n8-98-FEu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="favorites" image="favoriteIcon" selectedImage="favoriteIcon" id="jLf-vh-0i4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ICH-8o-t8S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" id="ICH-8o-t8S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.85442966222763062" green="0.22088152170181274" blue="0.19602146744728088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -368,9 +378,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="32" height="32"/>
         <image name="characterIcon" width="25" height="25"/>
         <image name="favoriteIcon" width="25" height="25"/>
         <image name="favoriteSelect" width="32" height="32"/>
         <image name="placeholder" width="539" height="539"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

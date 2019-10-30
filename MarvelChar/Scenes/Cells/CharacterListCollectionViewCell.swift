@@ -19,8 +19,8 @@ class CharacterListCollectionViewCell: UICollectionViewCell {
         self.isFavorite = isFavorite
         self.character = character
         characterName.text = character.name
-        let imageName = isFavorite ? "favoriteSelect" : "favoriteDeselect"
-        favoriteButton.setImage(UIImage(named: imageName), for: .normal)
+        let image = isFavorite ? #imageLiteral(resourceName: "favoriteSelect") : #imageLiteral(resourceName: "favoriteDeselect")
+        favoriteButton.setImage(image, for: .normal)
     }
     
     func setupImage(thumbnail: Thumbnail?) {
@@ -37,13 +37,13 @@ class CharacterListCollectionViewCell: UICollectionViewCell {
             coreData.saveCharacter(character: character)
         }
         isFavorite = !isFavorite
-        let imageName = isFavorite ? "favoriteSelect" : "favoriteDeselect"
-        favoriteButton.setImage(UIImage(named: imageName), for: .normal)
+        let image = isFavorite ? #imageLiteral(resourceName: "favoriteSelect") : #imageLiteral(resourceName: "favoriteDeselect")
+        favoriteButton.setImage(image, for: .normal)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        characterImage.image = UIImage(named: "placeholder")
+        characterImage.image = #imageLiteral(resourceName: "placeholder")
         characterName.text = "Stan Lee"
     }
 }

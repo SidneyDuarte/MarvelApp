@@ -25,7 +25,11 @@ class FavoriteCharactersInteractor: NSObject {
 
 extension FavoriteCharactersInteractor: FavoriteCharactersInteractorProtocol {
     func showCharacters() {
-        guard let characters = coreDataManager?.retrieveCharacters() else { return }
+        guard let characters = coreDataManager?.retrieveCharacters(), characters.count > 0 else {
+            self.characters.removeAll()
+            presenter?.emptyState(state: .noResult)
+            return
+        }
         self.characters = characters
         self.presenter?.showCharacters()
     }

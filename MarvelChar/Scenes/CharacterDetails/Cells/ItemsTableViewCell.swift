@@ -11,7 +11,6 @@ import UIKit
 class ItemsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var items: [Result]?
     
     func setupCell(items: [Result], title: String) {
@@ -42,6 +41,6 @@ extension ItemsTableViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
 }

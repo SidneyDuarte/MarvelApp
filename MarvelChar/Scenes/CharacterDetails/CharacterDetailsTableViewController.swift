@@ -14,7 +14,7 @@ protocol CharacterDetailsTableViewControllerProtocol {
     func displayComics()
     func saveFromFavorites()
     func removeFromFavorites()
-    func showError(string: String)
+    func getError()
 }
 
 class CharacterDetailsTableViewController: UITableViewController {
@@ -36,11 +36,7 @@ class CharacterDetailsTableViewController: UITableViewController {
     
     @IBAction func didTapFavorite(_ sender: Any) {
         let isFavorite = wireFrame?.interactor.character?.isFavorite ?? false
-        if isFavorite {
-             wireFrame?.interactor.removeFromFavorites()
-        } else {
-            wireFrame?.interactor.saveFromFavorite()
-        }
+        wireFrame?.interactor.setupFavorite(isFavorite: isFavorite)
     }
 }
 
@@ -114,7 +110,7 @@ extension CharacterDetailsTableViewController: CharacterDetailsTableViewControll
     func displayInfo(character: Result, imageUrl: URL?) {
         self.title = character.name ?? ""
         let isFavorite = character.isFavorite ?? false
-        barButton.tintColor = isFavorite ? UIColor.yellow : UIColor.gray
+        barButton.tintColor = isFavorite ? UIColor.yellow : UIColor.white
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
         wireFrame?.interactor.loadComics(characterId: character.id ?? 0)
     }
@@ -141,10 +137,10 @@ extension CharacterDetailsTableViewController: CharacterDetailsTableViewControll
     
     func removeFromFavorites() {
         wireFrame?.interactor.character?.isFavorite = false
-        barButton.tintColor = UIColor.gray
+        barButton.tintColor = UIColor.white
     }
     
-    func showError(string: String) {
+    func getError() {
         DispatchQueue.main.async {
             self.loadingView?.removeFromSuperview()
         }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EmptyStateView" customModule="MarvelChar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usb-fs-qT6">
+                    <rect key="frame" x="62" y="313.5" width="290" height="269"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadpoolNoInternet" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-6V-lHg">
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="269"/>
+                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="D0r-6V-lHg" secondAttribute="trailing" id="brm-iw-UDg"/>
+                        <constraint firstAttribute="bottom" secondItem="D0r-6V-lHg" secondAttribute="bottom" id="mfs-Pc-FfR"/>
+                        <constraint firstItem="D0r-6V-lHg" firstAttribute="top" secondItem="Usb-fs-qT6" secondAttribute="top" id="pe4-fn-FUt"/>
+                        <constraint firstItem="D0r-6V-lHg" firstAttribute="leading" secondItem="Usb-fs-qT6" secondAttribute="leading" id="yHr-t5-HIV"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OH! NO! WE HAVE A PROBLEM!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxi-ob-TLG">
+                    <rect key="frame" x="62" y="598.5" width="290" height="45.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.85442966220000005" green="0.2208815217" blue="0.19602146740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="Usb-fs-qT6" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="4bs-i1-Hb9"/>
+                <constraint firstItem="Usb-fs-qT6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="J8v-xY-P6X"/>
+                <constraint firstItem="Usb-fs-qT6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KFD-j3-rid"/>
+                <constraint firstItem="vxi-ob-TLG" firstAttribute="top" secondItem="Usb-fs-qT6" secondAttribute="bottom" constant="16" id="cSS-aL-ovE"/>
+                <constraint firstItem="Usb-fs-qT6" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="fZQ-fi-dod"/>
+                <constraint firstItem="vxi-ob-TLG" firstAttribute="leading" secondItem="D0r-6V-lHg" secondAttribute="leading" id="pOM-IJ-5T4"/>
+                <constraint firstItem="vxi-ob-TLG" firstAttribute="trailing" secondItem="D0r-6V-lHg" secondAttribute="trailing" id="u0q-YB-ys1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="emptyStateImage" destination="D0r-6V-lHg" id="HWN-8P-zWK"/>
+                <outlet property="emptyStateLabel" destination="vxi-ob-TLG" id="Awd-eF-GzY"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="deadpoolNoInternet" width="520" height="600"/>
+    </resources>
+</document>
