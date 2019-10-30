@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 
-class CoreDataManager: NSObject {
+protocol CoreDataManagerProtocol {
+    func saveCharacter(character: Result)
+    func retrieveCharacters() -> [Result]
+    func deleteCharacter(id: Int)
+}
+
+class CoreDataManager: CoreDataManagerProtocol {
     func saveCharacter(character: Result) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext

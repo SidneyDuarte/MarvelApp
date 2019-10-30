@@ -9,21 +9,17 @@
 import UIKit
 
 protocol FavoriteCharactersInteractorProtocol {
+    var characters: [Result] { get }
+    var coreDataManager: CoreDataManagerProtocol?  { get set }
+    var presenter: FavoriteCharactersPresenterProtocol?  { get set }
     func showCharacters()
 }
 
-class FavoriteCharactersInteractor: NSObject {
+class FavoriteCharactersInteractor: FavoriteCharactersInteractorProtocol {
     var characters = [Result]()
-    var coreDataManager: CoreDataManager?
+    var coreDataManager: CoreDataManagerProtocol?
     var presenter: FavoriteCharactersPresenterProtocol?
     
-    init(coreDataManager: CoreDataManager) {
-        super.init()
-        self.coreDataManager = coreDataManager
-    }
-}
-
-extension FavoriteCharactersInteractor: FavoriteCharactersInteractorProtocol {
     func showCharacters() {
         guard let characters = coreDataManager?.retrieveCharacters(), characters.count > 0 else {
             self.characters.removeAll()

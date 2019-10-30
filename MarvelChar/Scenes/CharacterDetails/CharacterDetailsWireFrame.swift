@@ -8,15 +8,20 @@
 
 import UIKit
 
-class CharacterDetailsWireFrame: NSObject {
-    var viewController: CharacterDetailsTableViewController?
-    let presenter = CharacterDetailsPresenter()
-    let interactor = CharacterDetailsInteractor()
-    let coreDataManager = CoreDataManager()
-    let repository = Repository()
+protocol CharacterDetailsWireFrameProtocol {
+    var presenter: CharacterDetailsPresenterProtocol { get }
+    var interactor: CharacterDetailsInteractorProtocol { get set }
+    var coreDataManager: CoreDataManagerProtocol { get }
+    var repository: RepositoryProtocol { get }
+}
+
+class CharacterDetailsWireFrame: CharacterDetailsWireFrameProtocol {
+    var presenter: CharacterDetailsPresenterProtocol = CharacterDetailsPresenter()
+    var interactor: CharacterDetailsInteractorProtocol = CharacterDetailsInteractor()
+    var coreDataManager: CoreDataManagerProtocol = CoreDataManager()
+    var repository: RepositoryProtocol = Repository()
     
     init(viewController: CharacterDetailsTableViewController) {
-        self.viewController = viewController
         interactor.presenter = presenter
         interactor.coreDataManager = coreDataManager
         interactor.repository = repository

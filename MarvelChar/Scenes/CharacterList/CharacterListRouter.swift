@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CharacterListRouterProtocol {
+    var viewController: CharacterListViewController? { get set }
     func routeToShowDetails(character: Result)
 }
 

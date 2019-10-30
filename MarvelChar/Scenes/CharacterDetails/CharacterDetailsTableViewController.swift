@@ -18,7 +18,7 @@ protocol CharacterDetailsTableViewControllerProtocol {
 }
 
 class CharacterDetailsTableViewController: UITableViewController {
-    var wireFrame: CharacterDetailsWireFrame?
+    var wireFrame: CharacterDetailsWireFrameProtocol?
     var loadingView: LoadingView?
     @IBOutlet weak var barButton: UIBarButtonItem!
     

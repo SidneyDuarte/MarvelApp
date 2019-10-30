@@ -9,10 +9,11 @@
 import UIKit
 
 protocol CharacterDetailsPresenterProtocol {
+    var viewController: CharacterDetailsTableViewControllerProtocol? { get set }
     func displayInfo(character: Result)
     func displaySeries()
     func displayComics()
-    func showError(state: State)
+    func showError()
     func saveFromFavorite()
     func revomeFromFavorite()
 }
@@ -42,7 +43,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterProtocol {
         viewController?.removeFromFavorites()
     }
     
-    func showError(state: State) {
-        
+    func showError() {
+        viewController?.getError()
     }
 }

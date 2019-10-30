@@ -14,7 +14,7 @@ protocol CharacterListViewControllerProtocol: class {
 }
 
 class CharacterListViewController: UIViewController {
-    var wireFrame: CharacterListWireframe?
+    var wireFrame: CharacterListWireframeProtocol?
     var loadingView: LoadingView?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -22,12 +22,12 @@ class CharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wireFrame = CharacterListWireframe(viewController: self)
-        flowLayout.configFlowLayoutSize(viewWidth: self.view.bounds.width)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureLayout()
+        flowLayout.configFlowLayoutSize(viewWidth: self.view.bounds.width)
         wireFrame?.interactor.characters.removeAll()
         collectionView.reloadData()
         wireFrame?.interactor.fetchFavoriteCharacter()

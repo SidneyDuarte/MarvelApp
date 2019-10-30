@@ -7,12 +7,13 @@
 //
 
 protocol CharacterListPresenterProtocol {
+    var viewController: CharacterListViewControllerProtocol? { get set }
     func showCharacters()
     func showError(state: State)
 }
 
 class CharacterListPresenter: CharacterListPresenterProtocol {
-    weak var viewController: CharacterListViewControllerProtocol?
+    var viewController: CharacterListViewControllerProtocol?
     
     func showCharacters() {
         viewController?.showCharacters()

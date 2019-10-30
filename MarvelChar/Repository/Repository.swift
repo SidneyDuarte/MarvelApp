@@ -11,7 +11,13 @@ import UIKit
 typealias Success = (_ result: MarvelCharacter.Response) -> ()
 typealias Failure = (_ state: State) -> ()
 
-class Repository: NSObject {
+protocol RepositoryProtocol {
+    func getResponse(request: MarvelCharacter.Request,
+                     success: @escaping Success,
+                     failure: @escaping Failure)
+}
+
+class Repository: RepositoryProtocol {
     func getResponse(request: MarvelCharacter.Request,
                               success: @escaping Success,
                               failure: @escaping Failure) {

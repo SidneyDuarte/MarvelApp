@@ -9,6 +9,12 @@
 import UIKit
 
 protocol CharacterListInteractorProtocol {
+    var presenter: CharacterListPresenterProtocol? { get set }
+    var repository: RepositoryProtocol? { get set }
+    var coreDataManager: CoreDataManagerProtocol? { get set }
+    var dataClass: DataClass? { get }
+    var characters: [Result] { get set }
+    var favoritesCharacter: [Result]  { get }
     func fetchCharacter(offset: Int)
     func refresh()
     func fetchFavoriteCharacter()
@@ -17,8 +23,8 @@ protocol CharacterListInteractorProtocol {
 
 class CharacterListInteractor: NSObject {
     var presenter: CharacterListPresenterProtocol?
-    var repository: Repository?
-    var coreDataManager: CoreDataManager?
+    var repository: RepositoryProtocol?
+    var coreDataManager: CoreDataManagerProtocol?
     var dataClass: DataClass?
     var characters = [Result]()
     var favoritesCharacter = [Result]()

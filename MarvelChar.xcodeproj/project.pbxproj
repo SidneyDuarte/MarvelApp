@@ -14,6 +14,26 @@
 		1D4F03BE2369EEFE00FA9DDF /* EmptyStateRequest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4F03BD2369EEFE00FA9DDF /* EmptyStateRequest.xib */; };
 		1D4F03C12369F12700FA9DDF /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03C02369F12700FA9DDF /* EmptyStateView.swift */; };
 		1D4F03C32369FB3D00FA9DDF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03C22369FB3D00FA9DDF /* Reachability.swift */; };
+		1D4F03C6236A08F500FA9DDF /* CharacterListProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03C5236A08F500FA9DDF /* CharacterListProtocolTests.swift */; };
+		1D4F03C9236A0A8200FA9DDF /* CharacterListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03C8236A0A8200FA9DDF /* CharacterListInteractorMock.swift */; };
+		1D4F03CB236A0B8400FA9DDF /* CharacterListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03CA236A0B8400FA9DDF /* CharacterListPresenterMock.swift */; };
+		1D4F03CE236A0C7000FA9DDF /* RepositorySuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03CD236A0C7000FA9DDF /* RepositorySuccessMock.swift */; };
+		1D4F03D0236A0C7D00FA9DDF /* RepositoryFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03CF236A0C7D00FA9DDF /* RepositoryFailureMock.swift */; };
+		1D4F03D3236A0CB800FA9DDF /* ResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03D2236A0CB800FA9DDF /* ResponseMock.swift */; };
+		1D4F03D5236A10F600FA9DDF /* CoreDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03D4236A10F600FA9DDF /* CoreDataManagerMock.swift */; };
+		1D4F03DB236A15F300FA9DDF /* CharacterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03DA236A15F300FA9DDF /* CharacterListPresenterTests.swift */; };
+		1D4F03DD236A161300FA9DDF /* CharacterListViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03DC236A161300FA9DDF /* CharacterListViewControllerMock.swift */; };
+		1D4F03E5236A1CF100FA9DDF /* CharacterListWireFrameMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03E4236A1CF100FA9DDF /* CharacterListWireFrameMock.swift */; };
+		1D4F03E9236A2B8700FA9DDF /* CharacterDetailsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03E8236A2B8600FA9DDF /* CharacterDetailsInteractorMock.swift */; };
+		1D4F03EB236A2F1100FA9DDF /* CharacterDetailsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03EA236A2F1100FA9DDF /* CharacterDetailsViewControllerMock.swift */; };
+		1D4F03ED236A2FB400FA9DDF /* CharacterDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03EC236A2FB400FA9DDF /* CharacterDetailsInteractorTests.swift */; };
+		1D4F03EF236A300100FA9DDF /* CharacterDetailsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03EE236A300100FA9DDF /* CharacterDetailsPresenterMock.swift */; };
+		1D4F03F1236A336800FA9DDF /* CharacterDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03F0236A336800FA9DDF /* CharacterDetailsPresenterTests.swift */; };
+		1D4F03F5236A388C00FA9DDF /* FavoritePresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03F4236A388C00FA9DDF /* FavoritePresenterMock.swift */; };
+		1D4F03F7236A38A600FA9DDF /* FavoriteViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03F6236A38A600FA9DDF /* FavoriteViewControllerMock.swift */; };
+		1D4F03F9236A391900FA9DDF /* FavoriteInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03F8236A391900FA9DDF /* FavoriteInteractorTests.swift */; };
+		1D4F03FB236A392B00FA9DDF /* FavoritePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03FA236A392B00FA9DDF /* FavoritePresenterTests.swift */; };
+		1D4F03FD236A3A4900FA9DDF /* CoreDataFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F03FC236A3A4900FA9DDF /* CoreDataFailureMock.swift */; };
 		1D5C640D23661B0900D0AABF /* CharacterDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C640C23661B0900D0AABF /* CharacterDetailsTableViewController.swift */; };
 		1D5C640F23661BE100D0AABF /* CharacterDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C640E23661BE100D0AABF /* CharacterDetailsInteractor.swift */; };
 		1D5C641123661BED00D0AABF /* CharacterDetailsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C641023661BED00D0AABF /* CharacterDetailsWireFrame.swift */; };
@@ -30,7 +50,6 @@
 		1D8733DF2364983E00FB3495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8733DD2364983E00FB3495 /* Main.storyboard */; };
 		1D8733E42364984000FB3495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D8733E32364984000FB3495 /* Assets.xcassets */; };
 		1D8733E72364984000FB3495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8733E52364984000FB3495 /* LaunchScreen.storyboard */; };
-		1D8733F22364984000FB3495 /* MarvelCharTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8733F12364984000FB3495 /* MarvelCharTests.swift */; };
 		1D8733FD2364984000FB3495 /* MarvelCharUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8733FC2364984000FB3495 /* MarvelCharUITests.swift */; };
 		1D87341023649B4A00FB3495 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87340F23649B4A00FB3495 /* Repository.swift */; };
 		1D8734172364A1E100FB3495 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8734162364A1E100FB3495 /* Constants.swift */; };
@@ -76,6 +95,26 @@
 		1D4F03BD2369EEFE00FA9DDF /* EmptyStateRequest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateRequest.xib; sourceTree = "<group>"; };
 		1D4F03C02369F12700FA9DDF /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		1D4F03C22369FB3D00FA9DDF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		1D4F03C5236A08F500FA9DDF /* CharacterListProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListProtocolTests.swift; sourceTree = "<group>"; };
+		1D4F03C8236A0A8200FA9DDF /* CharacterListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorMock.swift; sourceTree = "<group>"; };
+		1D4F03CA236A0B8400FA9DDF /* CharacterListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterMock.swift; sourceTree = "<group>"; };
+		1D4F03CD236A0C7000FA9DDF /* RepositorySuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySuccessMock.swift; sourceTree = "<group>"; };
+		1D4F03CF236A0C7D00FA9DDF /* RepositoryFailureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryFailureMock.swift; sourceTree = "<group>"; };
+		1D4F03D2236A0CB800FA9DDF /* ResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMock.swift; sourceTree = "<group>"; };
+		1D4F03D4236A10F600FA9DDF /* CoreDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMock.swift; sourceTree = "<group>"; };
+		1D4F03DA236A15F300FA9DDF /* CharacterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTests.swift; sourceTree = "<group>"; };
+		1D4F03DC236A161300FA9DDF /* CharacterListViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewControllerMock.swift; sourceTree = "<group>"; };
+		1D4F03E4236A1CF100FA9DDF /* CharacterListWireFrameMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListWireFrameMock.swift; sourceTree = "<group>"; };
+		1D4F03E8236A2B8600FA9DDF /* CharacterDetailsInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractorMock.swift; sourceTree = "<group>"; };
+		1D4F03EA236A2F1100FA9DDF /* CharacterDetailsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewControllerMock.swift; sourceTree = "<group>"; };
+		1D4F03EC236A2FB400FA9DDF /* CharacterDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		1D4F03EE236A300100FA9DDF /* CharacterDetailsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenterMock.swift; sourceTree = "<group>"; };
+		1D4F03F0236A336800FA9DDF /* CharacterDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenterTests.swift; sourceTree = "<group>"; };
+		1D4F03F4236A388C00FA9DDF /* FavoritePresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenterMock.swift; sourceTree = "<group>"; };
+		1D4F03F6236A38A600FA9DDF /* FavoriteViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerMock.swift; sourceTree = "<group>"; };
+		1D4F03F8236A391900FA9DDF /* FavoriteInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractorTests.swift; sourceTree = "<group>"; };
+		1D4F03FA236A392B00FA9DDF /* FavoritePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenterTests.swift; sourceTree = "<group>"; };
+		1D4F03FC236A3A4900FA9DDF /* CoreDataFailureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFailureMock.swift; sourceTree = "<group>"; };
 		1D5C640C23661B0900D0AABF /* CharacterDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewController.swift; sourceTree = "<group>"; };
 		1D5C640E23661BE100D0AABF /* CharacterDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractor.swift; sourceTree = "<group>"; };
 		1D5C641023661BED00D0AABF /* CharacterDetailsWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsWireFrame.swift; sourceTree = "<group>"; };
@@ -95,7 +134,6 @@
 		1D8733E62364984000FB3495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D8733E82364984000FB3495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8733ED2364984000FB3495 /* MarvelCharTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelCharTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D8733F12364984000FB3495 /* MarvelCharTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharTests.swift; sourceTree = "<group>"; };
 		1D8733F32364984000FB3495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8733F82364984000FB3495 /* MarvelCharUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelCharUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8733FC2364984000FB3495 /* MarvelCharUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharUITests.swift; sourceTree = "<group>"; };
@@ -150,6 +188,85 @@
 				1D4F03C02369F12700FA9DDF /* EmptyStateView.swift */,
 			);
 			path = EmptyState;
+			sourceTree = "<group>";
+		};
+		1D4F03C4236A08D100FA9DDF /* CharacterList */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03C7236A0A6900FA9DDF /* Mock */,
+				1D4F03C5236A08F500FA9DDF /* CharacterListProtocolTests.swift */,
+				1D4F03DA236A15F300FA9DDF /* CharacterListPresenterTests.swift */,
+			);
+			path = CharacterList;
+			sourceTree = "<group>";
+		};
+		1D4F03C7236A0A6900FA9DDF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03C8236A0A8200FA9DDF /* CharacterListInteractorMock.swift */,
+				1D4F03CA236A0B8400FA9DDF /* CharacterListPresenterMock.swift */,
+				1D4F03DC236A161300FA9DDF /* CharacterListViewControllerMock.swift */,
+				1D4F03E4236A1CF100FA9DDF /* CharacterListWireFrameMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		1D4F03CC236A0C5B00FA9DDF /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03CD236A0C7000FA9DDF /* RepositorySuccessMock.swift */,
+				1D4F03CF236A0C7D00FA9DDF /* RepositoryFailureMock.swift */,
+				1D4F03D4236A10F600FA9DDF /* CoreDataManagerMock.swift */,
+				1D4F03FC236A3A4900FA9DDF /* CoreDataFailureMock.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1D4F03D1236A0CAA00FA9DDF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03D2236A0CB800FA9DDF /* ResponseMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		1D4F03E6236A29D500FA9DDF /* CharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03E7236A29F700FA9DDF /* Mock */,
+				1D4F03EC236A2FB400FA9DDF /* CharacterDetailsInteractorTests.swift */,
+				1D4F03F0236A336800FA9DDF /* CharacterDetailsPresenterTests.swift */,
+			);
+			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
+		1D4F03E7236A29F700FA9DDF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03E8236A2B8600FA9DDF /* CharacterDetailsInteractorMock.swift */,
+				1D4F03EA236A2F1100FA9DDF /* CharacterDetailsViewControllerMock.swift */,
+				1D4F03EE236A300100FA9DDF /* CharacterDetailsPresenterMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		1D4F03F2236A34E400FA9DDF /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03F3236A34FA00FA9DDF /* Mock */,
+				1D4F03F8236A391900FA9DDF /* FavoriteInteractorTests.swift */,
+				1D4F03FA236A392B00FA9DDF /* FavoritePresenterTests.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		1D4F03F3236A34FA00FA9DDF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1D4F03F4236A388C00FA9DDF /* FavoritePresenterMock.swift */,
+				1D4F03F6236A38A600FA9DDF /* FavoriteViewControllerMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		1D5C641F23666D1000D0AABF /* LoadingView */ = {
@@ -220,7 +337,11 @@
 		1D8733F02364984000FB3495 /* MarvelCharTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D8733F12364984000FB3495 /* MarvelCharTests.swift */,
+				1D4F03F2236A34E400FA9DDF /* Favorites */,
+				1D4F03E6236A29D500FA9DDF /* CharacterDetails */,
+				1D4F03D1236A0CAA00FA9DDF /* Mock */,
+				1D4F03CC236A0C5B00FA9DDF /* Repository */,
+				1D4F03C4236A08D100FA9DDF /* CharacterList */,
 				1D8733F32364984000FB3495 /* Info.plist */,
 			);
 			path = MarvelCharTests;
@@ -517,7 +638,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D8733F22364984000FB3495 /* MarvelCharTests.swift in Sources */,
+				1D4F03F1236A336800FA9DDF /* CharacterDetailsPresenterTests.swift in Sources */,
+				1D4F03FD236A3A4900FA9DDF /* CoreDataFailureMock.swift in Sources */,
+				1D4F03DB236A15F300FA9DDF /* CharacterListPresenterTests.swift in Sources */,
+				1D4F03EF236A300100FA9DDF /* CharacterDetailsPresenterMock.swift in Sources */,
+				1D4F03E5236A1CF100FA9DDF /* CharacterListWireFrameMock.swift in Sources */,
+				1D4F03D5236A10F600FA9DDF /* CoreDataManagerMock.swift in Sources */,
+				1D4F03D0236A0C7D00FA9DDF /* RepositoryFailureMock.swift in Sources */,
+				1D4F03CB236A0B8400FA9DDF /* CharacterListPresenterMock.swift in Sources */,
+				1D4F03D3236A0CB800FA9DDF /* ResponseMock.swift in Sources */,
+				1D4F03C6236A08F500FA9DDF /* CharacterListProtocolTests.swift in Sources */,
+				1D4F03EB236A2F1100FA9DDF /* CharacterDetailsViewControllerMock.swift in Sources */,
+				1D4F03CE236A0C7000FA9DDF /* RepositorySuccessMock.swift in Sources */,
+				1D4F03E9236A2B8700FA9DDF /* CharacterDetailsInteractorMock.swift in Sources */,
+				1D4F03F7236A38A600FA9DDF /* FavoriteViewControllerMock.swift in Sources */,
+				1D4F03F5236A388C00FA9DDF /* FavoritePresenterMock.swift in Sources */,
+				1D4F03F9236A391900FA9DDF /* FavoriteInteractorTests.swift in Sources */,
+				1D4F03FB236A392B00FA9DDF /* FavoritePresenterTests.swift in Sources */,
+				1D4F03ED236A2FB400FA9DDF /* CharacterDetailsInteractorTests.swift in Sources */,
+				1D4F03DD236A161300FA9DDF /* CharacterListViewControllerMock.swift in Sources */,
+				1D4F03C9236A0A8200FA9DDF /* CharacterListInteractorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

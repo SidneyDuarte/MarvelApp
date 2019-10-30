@@ -9,12 +9,13 @@
 import UIKit
 
 protocol FavoriteCharactersPresenterProtocol {
+    var viewController: FavoriteCharacterViewControllerProtocol? { get set }
     func showCharacters()
     func emptyState(state: State)
 }
 
 class FavoriteCharactersPresenter: FavoriteCharactersPresenterProtocol {
-    weak var viewController: FavoriteCharacterViewControllerProtocol?
+    var viewController: FavoriteCharacterViewControllerProtocol?
     
     func showCharacters() {
         self.viewController?.showCharacters()

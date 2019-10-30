@@ -16,7 +16,7 @@ protocol FavoriteCharacterViewControllerProtocol: class {
 class FavoriteCharacterViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    var wireFrame: FavoriteCharactersWireFrame?
+    var wireFrame: FavoriteCharactersWireFrameProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()

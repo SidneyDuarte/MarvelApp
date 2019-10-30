@@ -12,7 +12,7 @@
         <!--characters-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="MarvelChar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterListViewController" id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="MarvelChar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                         <color key="badgeColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" id="aQr-Us-E7S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" backIndicatorTransitionMaskImage="backButton" id="aQr-Us-E7S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.85442966220000005" green="0.2208815217" blue="0.19602146740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -359,7 +359,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9n8-98-FEu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="favorites" image="favoriteIcon" selectedImage="favoriteIcon" id="jLf-vh-0i4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" id="ICH-8o-t8S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="backButton" backIndicatorTransitionMaskImage="backButton" id="ICH-8o-t8S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.85442966222763062" green="0.22088152170181274" blue="0.19602146744728088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

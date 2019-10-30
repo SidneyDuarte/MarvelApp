@@ -8,17 +8,22 @@
 
 import UIKit
 
-class FavoriteCharactersWireFrame: NSObject {
-    var viewController: FavoriteCharacterViewController?
-    let presenter = FavoriteCharactersPresenter()
-    let interactor: FavoriteCharactersInteractor!
-    let coreDataManager = CoreDataManager()
-    let router = FavoriteCharactersRouter()
+protocol FavoriteCharactersWireFrameProtocol {
+    var presenter: FavoriteCharactersPresenterProtocol { get }
+    var interactor: FavoriteCharactersInteractorProtocol  { get }
+    var coreDataManager: CoreDataManagerProtocol { get }
+    var router: FavoriteCharactersRouter { get }
+}
+
+class FavoriteCharactersWireFrame: FavoriteCharactersWireFrameProtocol {
+    var presenter: FavoriteCharactersPresenterProtocol = FavoriteCharactersPresenter()
+    var interactor: FavoriteCharactersInteractorProtocol = FavoriteCharactersInteractor()
+    var coreDataManager: CoreDataManagerProtocol = CoreDataManager()
+    var router: FavoriteCharactersRouter = FavoriteCharactersRouter()
     
     init(viewController: FavoriteCharacterViewController) {
-        self.viewController = viewController
-        interactor = FavoriteCharactersInteractor(coreDataManager: coreDataManager)
         interactor.presenter = presenter
+        interactor.coreDataManager = coreDataManager
         presenter.viewController = viewController
         router.viewController = viewController
     }
